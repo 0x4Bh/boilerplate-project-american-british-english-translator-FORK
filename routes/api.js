@@ -14,10 +14,10 @@ module.exports = function (app) {
       else if (locale !== "american-to-british" && locale !== "british-to-american") res.json({ error: 'Invalid value for locale field' });
       else {
         if (locale === "american-to-british") {
-          translation = translator.americanToBritish(text);
+          translation = translator.americanToBritish(text, true);
         }
         else if (locale === "british-to-american") {
-          translation = translator.britishToAmerican(text);
+          translation = translator.britishToAmerican(text, true);
         }
         translation = text === translation ? "Everything looks good to me!" : translation;
         res.json({ text, translation });
